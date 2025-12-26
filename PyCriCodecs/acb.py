@@ -150,7 +150,7 @@ class ACB(UTF):
             extension = self.get_extension(pl["WaveformTable"][idx]["EncodeType"][1])
             if decode and extension == ".hca":
                 hca_data = HCA(file_data, key=key, subkey=self.awb.subkey).decode()
-                out_filename = (cue_names[idx] if idx < len(cue_names) else str(idx)) + ".wav"
+                out_filename = (cue_names[idx] if idx < len(cue_names) else str(idx)) + ".ogg"
                 with open(os.path.join(dirname, out_filename), "wb") as out_file:
                     out_file.write(hca_data)
             else:
@@ -183,3 +183,4 @@ class ACB(UTF):
 # TODO Have to finish correct ACB extracting first.
 class ACBBuilder(UTFBuilder):
     pass
+
